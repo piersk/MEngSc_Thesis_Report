@@ -1,0 +1,56 @@
+\chapter{Conclusions}
+\section{Achieved Objectives}
+The core objective of the joint optimisation problem outlined in this thesis was to maximise the secrecy rate of \acrshort{uav}-\acrshort{lu} communications by optimising the \acrshort{uav} trajectory, data exchange rate and energy efficiency. 
+The trajectory was minimised and the energy efficiency, data exchange rates and secrecy rates were all maximised and shown to converge consistently across a range 30 of episodes.
+
+At the beginning of each episode, the \acrshort{uav} and all of the \acrshort{gu}s are initialised in a random location within the environment. 
+The quantum-assisted \acrshort{drl} algorithm and system outlined in this thesis demonstrated consistent convergence and an ability to rapidly adapt to any given environment that was tested. 
+
+This quantum/classical hybrid \acrshort{drl} algorithm and system has been applied to a novel optimisation problem of secrecy and physical layer security and the convergence of the secrecy rate and its subproblems demonstrate that it is an effective methodology for the optimisation problem outlined in this thesis. 
+\section{Interpretation of Results}
+The results demonstrate that the algorithm and system design is effective for maximising the secrecy rate for \acrshort{uav}-\acrshort{lu} communications. The outliers within the secrecy rate, the sum rate and the energy efficiency plots show that the \acrshort{uav} does explore its environment to avoid getting stuck within a local maximum or minimum, which is a problem faced by many optimisation and machine learning algorithms. 
+This exploration balanced with a convergence towards the optimal values for the joint optimisation problem yields an optimal result from $t=0$ to $t=T$ across all of the episodes that have been run as part of these experiments. 
+\section{Future Work \& Potential Improvements}
+\subsection{Comparison with Classical \texorpdfstring{\acrshort{drl}}{DRL} Algorithms}
+A comprehensive comparative study with a classical \acrshort{drl} implementation can illustrate the effectiveness and performance gains that can be achieved with the use of quantum computing being incorporated within the system and what the trade-offs are between entirely classical algorithms and quantum-classical hybrid algorithms such as the one outlined in this thesis. 
+
+While this was attempted early in the development of the project, it proved to be too time-consuming to complete and detracted from the development of the \acrshort{lqdrl} implementation. 
+Development of an comparable scheme that only relies on classical \acrshort{drl} could be developed to determine how much of a benefit the \acrshort{lqdrl} approach provided to the system. 
+\subsection{\texorpdfstring{\acrshort{marl}}{MARL} Support}
+The system has been designed using the \acrshort{oop} paradigm and has been designed to be extensible for more than one \acrshort{uav} agent, greater numbers of \acrshort{gu}s and different environments. 
+While this was not tested throughout the development of the code used for this thesis, the programs were designed to be modular with extensibility in mind for future work. 
+\subsection{\texorpdfstring{\acrshort{uav}-\acrshort{hap}s}{UAV-HAPs} Network Architecture}
+The system could be expanded even further to include a \acrshort{hap} to act as a more stable \acrshort{bs}, with \acrshort{uav}s acting as relays between the \acrshort{gu}s and the \acrshort{hap}. 
+Separate \acrshort{uav}s for jamming and interfering with Eve links could also be used within the system, with separate algorithms dedicated to identifying and sabotaging Eve links. 
+
+A \acrshort{hap} could be better suited to serve the purpose of a \acrshort{bs}, with a stable connection to each of the \acrshort{uav}s which could afford to be more dynamic and adapt to a more rapidly changing environment with the \acrshort{hap} being treated as a networked anchor for these \acrshort{uav}s. 
+Such a system could also allocate more dependence on the success of the network in a more distributed manner with a larger number of \acrshort{uav}s and a \acrshort{hap} providing the network coverage. 
+\subsection{Impact of Environmental Conditions}
+Some future work that could be incorporated into the simulations of the system would be to test the algorithm in a variety of different scenarios. 
+The system could be tested with environments containing different kinds of terrain, e.g., dense urban areas, clear rural plains, etc. with each kind of terrain providing benefits and drawbacks, such as obstacles for the \acrshort{uav} to avoid, new kinds of constraints to consider and so on. 
+The different kinds of terrain could be compared for their effects on the Rician channel dynamics, the \acrshort{uav} trajectory optimisation as the probability of establishing a \acrshort{los} connection may be impeded among many others. 
+Buildings and materials such as concrete or conducting materials such as metals could affect the performance of the communications model. 
+
+Another aspect of the environmental conditions that could be tested could be different weather conditions. 
+Rain and humid weather can have a negative effect on the propagation of communications signals through the environment, introducing new scattering parameters and necessitating more techniques to overcome these difficulties. 
+An environment with varying wind speed could also be tested in future to determine its effects on the manoeuvrability of the \acrshort{uav}, which could lead to the \acrshort{uav} having to consume more energy to combat this to complete its mission, thus impeding on the performance of the learning algorithm and potentially necessitating a mechanism within the system to handle the effects of wind on the \acrshort{uav}'s performance. 
+\subsection{Threat Models}
+Other cyber-attack and electronic warfare threat models could be considered for the system, with protocols for handling attacks such as domain or \acrfull{ip} address spoofing.
+
+Another threat model that could be considered could be more aggressive threats, such as bad actors jamming or interfering with \acrshort{uav}-\acrshort{lu} communications links. 
+This could require the introduction of other wireless technologies and models to combat any form of interference from a bad actor or other forms of electronic warfare. 
+
+Further and more robust authentication models to differentiate between \acrshort{lu}s and bad actors would have to be incorporated within the system to combat this, potentially requiring both higher-level digital and physical layer security being incorporated into the system. 
+
+Other means of classifying \acrshort{lu}s and bad actors could also be incorporated to tighten the security of the system and secrecy of the communications even more. 
+\subsection{Alternative Quantum Computing Techniques}
+Other quantum computing techniques that were explored in the literature review of this thesis, such as quantum annealing could be tested and experimented with this system model to solve the joint optimisation problem. 
+
+Quantum kernels could also be utilised for the process of identification or more robust authentication between \acrshort{lu}s and Eves or other bad actors. 
+A jamming and interference \acrshort{uav} could utilise a quantum kernel technique for classifying \acrshort{lu}s and bad actors in a dynamic environment. 
+
+Another technique that could be attempted would be to use amplitude encoding instead of angle encoding for the quantum-assisted \acrshort{drl} algorithm. 
+Amplitude encoding is a far more efficient method of quantum embedding as for $2^{n}$ data points to be embedded as inputs to a quantum circuit, only $n$ qubits would be required, thus, exponentially decreasing the size of the quantum circuit. 
+This technique could exponentially decrease the complexity of the algorithm while also allowing for more data to be embedded into an ansatz. 
+The lower quantum volume of such a circuit could also potentially increase the risk of errors induced by the environment in an open quantum system, i.e., on a practical quantum computer, however, the effects of errors, such as bit-flip or phase-flip errors in the quantum channel could have a proportionally greater effect on the performance of the system, however, to the author's knowledge, a system such as the one outlined in this thesis has not been implemented with the use of amplitude encoding at the time of writing and undertaking research for this thesis. 
+To achieve this, a novel preparation scheme would have to be devised and quantum tomography would have to be employed to ensure that the amplitudes of the states correspond correctly to the data that has been embedded into the quantum circuit. 

@@ -1,0 +1,74 @@
+\begin{titlepage}
+
+\center % Center everything on the page
+
+%% All the text parameters should be taken from the start of the main.tex file.
+%% You should only alter stuff here if you want to change the layout
+
+\vspace*{\fill}
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+\makeatletter
+\onehalfspacing
+{\Large \bfseries \thesistitle}\\[0.5cm] % Title of your document
+
+%----------------------------------------------------------------------------------------
+%	AUTHOR SECTION
+%----------------------------------------------------------------------------------------
+
+by\\[0.5cm]
+
+\ifdefined\authorid
+\authorname\\ % Your name
+\authorid\\[2cm] % Your Student ID
+\else
+\textbf{\authorname}\\[1cm] % Your name
+\fi
+
+
+%----------------------------------------------------------------------------------------
+%	TYPE OF THESIS SECTION
+%----------------------------------------------------------------------------------------
+%\vfill
+ A \typeofthesis\ submitted to University College Dublin in partial fulfillment\\of the requirements for the degree of\\
+\textbf{\degree}\\
+in the College of Engineering \& Architecture
+\\[1cm]
+%\vfill % Fill the rest of the page with whitespace
+
+%----------------------------------------------------------------------------------------
+%	LOGO SECTION
+%----------------------------------------------------------------------------------------
+%% Choose one of the following -- a colour or black-and-white logo
+
+\includegraphics[height=5cm]{title/University_College_Dublin_logo.svg.png}\\[1cm] 
+%\includegraphics[width=12cm]{title/black-stacked-trinity.jpg}\\[1cm] 
+
+\Large \school\\[1.5cm] % Minor heading such as course title
+\ifdefined\department
+\large \department\\[1cm] % Minor heading such as course title
+\fi
+
+
+%----------------------------------------------------------------------------------------
+%	Supervisor SECTION
+%----------------------------------------------------------------------------------------
+
+\normalsize \textbf{Head of School}: Professor Peter Kennedy\\
+\textbf{Supervisor}: \supervisor\\[1cm] % Their name
+\ifdefined\cosupervisor
+Cosupervisor: \cosupervisor\\ % Their name
+\fi
+%\\[1cm]
+
+%----------------------------------------------------------------------------------------
+%	DATE SECTION
+%----------------------------------------------------------------------------------------
+
+{\large \today}\\[2cm] % Date, change the \today to a set date if you want to be precise
+
+\vspace*{\fill}
+
+\end{titlepage}

@@ -1,0 +1,369 @@
+\documentclass[a4paper,oneside,12pt]{book}
+
+%----------------------------------------------------------------------------------------
+%	README!
+%   Welcome. It's worth having a read through this file
+%   to set up the broad parameters, such as the name of
+%   the degree, the school/department, the type of work
+%   (dissertation/Final Year Project/report, etc. as well
+%   as your own details.
+%----------------------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------------------
+%	COVER PAGE
+%   The cover page is laid out in title/title.tex. You can choose a colour
+%   or black and white logo
+%----------------------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------------------
+%	THESIS INFORMATION
+%   Put title, author name, supervisor name, degree, type of work, school, department in here
+%   It will be used for the title page and for the embedded PDF information
+%----------------------------------------------------------------------------------------
+
+%\newcommand{\thesistitle}{Chiral Acoustic Metamaterials for Sound Absorption in the Low-Frequency Range}
+
+\newcommand{\thesistitle}{Quantum-Assisted Optimisation of Secret Key Rate Exchange for UAV Communications using a Rician Channel Model for Physical Layer Security}% Your thesis title, this is used in the title and abstract
+\newcommand{\degree}{MEngSc in Electronic \& Computer Engineering} % Replace with your degree name, this is used in the title page and abstract
+\newcommand{\typeofthesis}{thesis} % dissertation, Final Year Project, report, etc.
+\newcommand{\authorname}{Piers Keegan} % Your name, this is used in the title page and PDF stuff
+%% Do not put your Student ID in the document, as TCD will not publish
+%% documents that contain both your name and your Student ID.
+\newcommand{\supervisor}{Assistant Professor Anshu Mukherjee} % replace with the name of your supervisor
+%\newcommand{\cosupervisor}{NAME HERE} % replace with the name of your co-supervisor if you have one
+\newcommand{\keywords}{POPULATE THIS LATER DON'T FORGET} % Replace with keywords for your thesis
+\newcommand{\school}{\href{https://www.ucd.ie/eleceng/}{School of Electrical \& Electronic Engineering}} % Your school's name and URL, this is used in the title page
+%Edited by HS for engineering
+
+%% Comment out the next line if you don't want a department to appear
+%\newcommand{\department}{\href{http://researchgroup.university.com}{Department Name}} % Your research group's name and URL, this is used in the title page
+
+
+%% Language and font encodings
+\usepackage[T1]{fontenc} 
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+%% Bibliographical stuff
+\usepackage[]{cite}
+%% Document size
+% include showframe as an option if you want to see the boxes
+\usepackage[a4paper,top=2.54cm,bottom=2.54cm,left=2.54cm,right=2.54cm,headheight=16pt]{geometry}
+\setlength{\marginparwidth}{2cm}
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
+\usepackage[pdftex]{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[colorlinks=true, allcolors=black]{hyperref}
+\usepackage{hyperxmp}
+\usepackage{caption} % if no caption, no colon
+\usepackage{sfmath} %use sans-serif in the maths sections too
+\usepackage[parfill]{parskip}    % Begin paragraphs with an empty line rather than an indent
+\usepackage{setspace} % to permit one-and-a-half or double spacing
+\usepackage{enumerate} % fancy enumerations like (i) (ii) or (a) (b) and suchlike
+\usepackage{booktabs} % To thicken table lines
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{xcolor} % to get TCD colour on headings
+\usepackage{tikz}
+\usetikzlibrary{quantikz}
+\numberwithin{equation}{chapter} %HS edit for (chapter.equation)
+\pagestyle{plain} % Embrace simplicity!
+
+\usepackage{notoccite}
+\usepackage{color,soul}
+
+\usepackage{verbatim} %added 09-04-2024
+
+\usepackage{subfigure}
+
+%\usepackage{tikz}
+%\usetikzlibrary{quantikz}
+%\usetikzlibrary{graphdrawing}
+%\usetikzlibrary{graphs}
+
+\usepackage{braket}
+\newcommand{\ketbra}[2]{\ket{#1}\bra{#2}}
+
+\usepackage[toc]{glossaries}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage{array}
+
+\definecolor{tcd_blue}{RGB}{5, 105, 185}
+
+%% It's personal taste but...
+%% Uncomment the following block if you want your name and ID at the top of
+%% (almost) every page.
+
+\pagestyle{fancy}
+\fancyhf{} % sets both header and footer to nothing
+\renewcommand{\headrulewidth}{1pt}
+\cfoot{\thepage}
+%\ifdefined\authorid
+%\lhead{\it \authorname\ (\authorid)}
+%\else
+%\lhead{\it \authorname}
+%\fi
+
+\fancyhead[L]{\nouppercase\leftmark}
+\renewcommand{\chaptermark}[1]{\markboth{\thechapter.\ #1}{}}
+%\fancyhead[ER,OL]{\thepage}
+%% End of block
+
+%% It is good practise to make your font sans-serif to improve the accessibility of your document.  Comment out the following line to disable it (but you really should not)
+\renewcommand{\familydefault}{\sfdefault} %use the sans-serif font as default
+
+%% If you insist on not using sans-serif (please don't), consider using Palatino instead of the LaTeX standard
+%\usepackage{mathpazo} % Use the Palatino font by default if you prefer it to Computer Modern
+
+%% Format Chapter headings appropriately
+\usepackage{titlesec}
+\titleformat{\chapter}[hang]{\normalfont\huge\bfseries\color{tcd_blue}}{\thechapter}{1cm}{}{}
+
+\titlespacing*{\chapter}{0pt}{0pt}{0pt}
+
+\title{\thesistitle}
+\author{\authorname}
+
+
+\hypersetup{
+   pdftitle=\thesistitle, % Set the PDF's title to your title
+   pdfauthor=\authorname, % Set the PDF's author to your name
+   pdfkeywords=\keywords, % Set the PDF's keywords to your keywords
+   pdfsubject=\degree, % Set the PDF's keywords to your keywords
+   pdfinfo={
+     pdfsupervisor=\supervisor, % Set the PDF's supervisor to your supervisor
+     %pdfcosupervisor=\cosupervisor, % Set the PDF's cosupervisor to your cosupervisor if using
+   }
+}
+
+\makeglossaries
+
+\newacronym{bs}{BS}{Base Station}
+\newacronym{td}{TD}{Terminal Device}
+\newacronym{los}{LoS}{Line of Sight}
+\newacronym{nlos}{NLoS}{Non-Line of Sight}
+\newacronym{masr}{MASR}{Minimum Average Secrecy Rate}
+\newacronym{uav}{UAV}{Unmanned Aerial Vehicle}
+\newacronym{uavs}{UAVs}{Unmanned Aerial Vehicles}
+\newacronym{hap}{HAP}{High-Altitude Platform}
+\newacronym{lap}{LAP}{Low-Altitude Platform}
+\newacronym{pls}{PLS}{Physical Layer Security}
+\newacronym{ue}{UE}{User Equipment}
+\newacronym{gu}{GU}{Ground User}
+\newacronym{lu}{LU}{Legitimate User}
+\newacronym{ofdm}{OFDM}{Orthogonal Frequency Division Multiplexing}
+\newacronym{noma}{NOMA}{Non-Orthogonal Multiple Access}
+\newacronym{qubo}{QUBO}{Quadratic Unconstrainted Binary Optimisation}
+\newacronym{aqc}{AQC}{Adiabatic Quantum Computation}
+\newacronym{sca}{SCA}{Successive Convex Approximation}
+\newacronym{cps}{CPS}{Cyber-Physical System}
+\newacronym{manet}{MANET}{Mobile Ad Hoc Network}
+\newacronym{mec}{MEC}{Mobile Edge Computing}
+\newacronym{ppo}{PPO}{Proximal Policy Optimisation}
+\newacronym{drl}{DRL}{Deep Reinforcement Learning}
+\newacronym{cqm}{CQM}{Constrained Quadratic Model}
+\newacronym{lqdrl}{LQ-DRL}{Layerwise Quantum Deep Reinforcement Learning}
+\newacronym{sinr}{SINR}{Signal to Interference \& Noise Ratio}
+\newacronym{snr}{SNR}{Signal to Noise Ratio}
+\newacronym{csi}{CSI}{Channel State Information}
+\newacronym{marl}{MARL}{Multi-Agent Reinforcement Learning}
+\newacronym{qam}{QAM}{Quadrature Amplitude Modulation}
+\newacronym{awgn}{AWGN}{Additive White Gaussian Noise}
+\newacronym{qos}{QoS}{Quality of Service}
+\newacronym{pud}{PUD}{Positive Unique Differences}
+\newacronym{dft}{DFT}{Discrete Fourier Transform}
+\newacronym{cscg}{CSCG}{Circularly Symmetric Complex Gaussian}
+\newacronym{fspl}{FSPL}{Free-Space Pathloss}
+\newacronym{mimo}{MIMO}{Multiple-Input Multiple-Output}
+\newacronym{sic}{SIC}{Successive Interference Cancellation}
+\newacronym{ans}{ANS}{Additive Noise Signature}
+\newacronym{mitm}{MitM}{Man in the Middle}
+\newacronym{oop}{OOP}{Object-Oriented Programming}
+\newacronym{bash}{BASH}{Bourne Again Shell}
+\newacronym{rf}{RF}{Radio Frequency}
+\newacronym{mer}{MER}{Memory Experience Replay}
+\newacronym{per}{PER}{Prioritised Experience Replay}
+\newacronym{4g}{4G}{4\textsuperscript{th} Generation Wireless Communication}
+\newacronym{5g}{5G}{5\textsuperscript{th} Generation Wireless Communication}
+\newacronym{hpc}{HPC}{High Performance Computing}
+\newacronym{jit}{JIT}{Just-in-Time}
+\newacronym{dqn}{DQN}{Deep Q-Network}
+\newacronym{is}{IS}{Importance-Sampling}
+\newacronym{tde}{TD-error}{Temporal Difference Error}
+\newacronym{ip}{IP}{Internet Protocol}
+
+\frontmatter
+\begin{document}
+\input{title/title.tex}
+\pagenumbering{roman}
+\setlength{\belowdisplayskip}{0pt} \setlength{\belowdisplayshortskip}{0pt}
+\setlength{\abovedisplayskip}{0pt} \setlength{\abovedisplayshortskip}{0pt}
+
+\clearpage
+\phantomsection
+%\addcontentsline{toc}{chapter}{Declaration of Authorship}
+\chapter*{Declaration of Authorship}
+\textbf{Student Name}: Piers Keegan
+
+\textbf{Student Number}: 24284403
+
+\textbf{Project Title}: Quantum-Assisted Optimisation of Secret Key Rate Exchange for UAV Communications using a Rician Channel Model for Physical Layer Security
+
+\textbf{Supervisor}: Dr. Anshu Mukherjee
+
+Plagiarism: the unacknowledged inclusion of another person’s writings or ideas or formally presented
+work (including essays, examinations, projects, laboratory presentations). The penalties associated with plagiarism designed to impose sanctions seriousness of University’s commitment to academic integrity.
+Ensure that you have read the University’s Briefing for Students on Academic Integrity and
+Plagiarism and the UCD Statement, Plagiarism Policy and Procedures, (http://www.ucd.ie/registrar/)
+
+I declare that all of the following are true:
+
+1) I fully understand the definition of plagiarism.
+
+2) I have not plagiarised any part of this project and it is my original work.
+
+3) All material in this report is my own work except where there is clear acknowledgement and appropriate reference to the work of others.
+
+I acknowledge the contribution of the following post-graduate students / post-doctoral fellows /
+researchers or technicians to work detailed in this report: N/A.
+
+\vspace{15mm}
+
+\begin{tabular}{@{}p{2.5in}p{2in}p{2in}@{}}
+    Signed: \includegraphics[width=0.15\textwidth]{figures/cropped_signature_declaration_of_authorship.png} && Date: 15\textsuperscript{th} August, 2025 \\
+\end{tabular}
+
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{Abstract}
+\chapter*{Abstract}
+This thesis details the novel application of a quantum-classical hybrid deep reinforcement learning algorithm to maximise the secrecy rate of communication links between an unmanned aerial vehicle acting as an aerial base station and a legitimate ground user that is being subjected to eavesdropping. 
+It is shown that the methodology outlined in this thesis successfully solves the joint optimisation problem's objective and its subproblems' objectives. 
+The secrecy rate, data exchange rate, energy efficiency and UAV trajectory are shown to consistently converge as intended across a range of simulation episodes, demonstrating the effectiveness of the techniques used for solving joint optimisation problems applied to UAV-enabled wireless communications.
+
+The thesis details the current state-of-the-art research that has been conducted on the topics of airborne wireless communications networks, optimisation of particular parameters related to aerial networking platforms, quantum computing techniques and how they have been applied to optimisation of airborne wireless communication platforms in a variety of ways. 
+Different network architectures and platforms are considered and explained. 
+
+The scenario and simulation environment involving a single aerial base station providing coverage to a set of legitimate ground users with terrestrial eavesdroppers is detailed. 
+A Rician channel model with a communications model employing non-orthogonal multiple accessing is described. 
+The joint optimisation problem and its subproblems are then outlined and mathematically derived. 
+
+The system architecture is described at a high level, followed by a more detailed explanation of its constituent subsystems. 
+The software engineering principles and Python implementation of the simulations is explained to convey how the simulations were run and the libraries and frameworks are useful for solving this problem are listed.
+
+From there, the simulation parameters are listed.
+The results, displaying convergence and maximisation of the secrecy rate and the convergence of its subproblems are shown and discussed. 
+It is noted that for deeper quantum circuits in use within the system, that the performance begins to degrade. 
+
+This thesis concludes by outlining the future work that can be carried out to extend this methodology and system architecture. 
+Attention is also paid to work that could be conducted to simulate the system and solve the joint optimisation problem for different scenarios, networking platforms, quantum computing techniques and threat models. 
+The impacts and benefits of the future work are explained in their respective subsections. 
+
+%This thesis investigates the use of \acrfull{uavs} as aerial base stations (\acrshort{bs}s) and how to optimise various controllable parameters of \acrshort{uav}-\acrshort{bs} to achieve the maximum level of secrecy for secure communications with legitimate ground users (\acrshort{gu}s) that are being subjected to eavesdropping by terrestrial eavesdroppers.  
+%The techniques employed as part of the optimisation algorithms explored in this thesis make use of contemporary hybrid classical and quantum computing methodologies to rapidly and accurately compute the optimal parameters to achieve the optimal level of communication secrecy, accounting for power consumption, UAV clustering, trajectory and others. 
+
+\newpage
+\onehalfspacing%\raggedright %\raggedright turns off justification and hyphenation
+
+%\clearpage
+%\phantomsection
+%\addcontentsline{toc}{chapter}{Acknowledgements}
+%\chapter*{Acknowledgements}
+%%\section*{\Huge\textcolor{tcd_blue}{Acknowledgements}}
+%%\hl{You should acknowledge any help that you have received (for example from technical staff), or input provided by, for example, a company.}
+%I would like to acknowledge the guidance and support received throughout the development of this project from my supervisor, Dr. Mukherjee, who provided useful guidance and advice in all of our meetings on how to proceed as well as feedback on my work. 
+%
+%I would also like to thank the university's Research IT department for my use of the Sonic HPC cluster as I would not have been able to 
+%\hl{RESEARCH IT GROUP FOR HPC ACCESS, ETC}
+%
+%\hl{FAMILY}
+%
+%\hl{LECTURERS, STAFF, ETC. IN UCD}
+%
+%\hl{RAMEN}
+%=============================================================%
+
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{Contents}
+\tableofcontents
+
+\clearpage
+\phantomsection
+\printglossary
+
+
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{List of Figures}
+\listoffigures
+
+\clearpage
+%\phantomsection
+%\addcontentsline{toc}{chapter}{List of Tables}
+%\listoftables
+\newpage
+%\section*{\Huge\textcolor{tcd_blue}{Nomenclature}}
+\clearpage
+%\phantomsection
+%\addcontentsline{toc}{chapter}{Nomenclature}
+%\chapter*{Nomenclature}
+%\begin{tabular}{lp{9cm}l}
+%A&Area of the wing&$m^{2}$\\
+%B\\
+%C& Roman letters first, with capitals\ldots\\
+%a&then lower case.\\
+%b\\
+%c\\
+%$\Gamma$&Followed by Greek capitals\ldots\\
+%$\alpha$&then lower case greek symbols.\\
+%$\beta$\\
+%$\epsilon$\\
+%TLA&Finally, three letter acronyms and other abbreviations arranged alphabetically\\
+%\end{tabular}
+%\vspace{2cm}
+%
+%If a parameter has a typical unit that is used throughout your report, then it should be included here on the right hand side.
+%
+%If you have a very mathematical report, then you may wish to divide the nomenclature list into functions and variables, and then sub- and super-scripts.
+%
+%If you have a large number of acronyms, check out \href{https://www.overleaf.com/learn/latex/Glossaries} to make that more robust.
+%
+%Note that Roman mathematical symbols are typically in a serif font in italics.
+%
+\mainmatter
+% maintaining separate .tex files for each chapter is good practice
+
+\fancyhead[R]{\nouppercase\rightmark}
+
+\input{introduction/introduction.tex}
+\input{literature_review/literature_review.tex}
+\input{methodology/methodology}
+\input{results/results}
+\input{discussion/discussion}
+\input{conclusions/conclusions}
+\cleardoublepage
+\phantomsection
+\fancyhead[R]{}
+\addcontentsline{toc}{chapter}{Bibliography}
+\bibliography{bibliography/thesis_research9}
+\input{provided_instructions/introduction/introduction_instructions.tex}
+\input{provided_instructions/background/FiguresTablesReferencing.tex}
+\input{provided_instructions/project/project.tex}
+
+% note that your supervisor may have a strong opinion on the style of referencing you use. Some background is available at https://www.overleaf.com/learn/latex/Bibtex_bibliography_styles
+\bibliographystyle{IEEEtran} %Changed to IEEETran by HS
+%\bibliographystyle{unsrt}
+
+\appendix
+\renewcommand{\thechapter}{A\arabic{chapter}}
+%\input{provided_instructions/appendix/appendix_instructions.tex}
+\input{appendices/appendix_a.tex}
+
+
+\end{document}
